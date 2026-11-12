@@ -1,0 +1,40 @@
+name: Refresh contribution map
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"   # Mondays 03:00 UTC (05:00 SAST)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch contribution calendar
+        env:
+          # GITHUB_TOKEN sees private contributions only if "Include private contributions on my profile"
+          # is on at github.com/settings/profile. A classic PAT with read:user in GH_CONTRIB_TOKEN sees them regardless.
+          GH_TOKEN: ${{ secrets.GH_CONTRIB_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          gh api graphql -f query='query{ user(login:"RShivuri"){ contributionsCollection{ totalCommitContributions restrictedContributionsCount contributionCalendar{ totalContributions weeks{ contributionDays{ date contributionCount } } } } } }' > assets-raw/contrib.json
+          node -e 'const c=require("./assets-raw/contrib.json").data.user.contributionsCollection.contributionCalendar;console.log("total",c.totalContributions,"weeks",c.weeks.length);if(c.weeks.length<50)process.exit(1)'
+
+      - name: Rebuild page
+        run: node build.js
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets-raw/contrib.json index.html src/page.html
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git commit -m "Refresh contribution map ($(date -u +%Y-%m-%d))"
+          git push
