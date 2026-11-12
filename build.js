@@ -32,7 +32,30 @@ function pathOnly(slug) {
   const s = fs.readFileSync(path.join(raw, `si-${slug}.svg`), "utf8");
   return (s.match(/<path d="([^"]+)"/) || [])[1];
 }
+// GitHub contribution calendar as inline SVG, from assets-raw/contrib.json (gh api graphql; see DEPLOY.md).
+function contribSvg() {
+  const c = JSON.parse(fs.readFileSync(path.join(raw, "contrib.json"), "utf8")).data.user.contributionsCollection;
+  const weeks = c.contributionCalendar.weeks;
+  const cell = 11, gap = 3, step = cell + gap, left = 28, top = 18;
+  const w = left + weeks.length * step, h = top + 7 * step;
+  const max = Math.max(1, ...weeks.flatMap(wk => wk.contributionDays.map(d => d.contributionCount)));
+  const lvl = n => n === 0 ? 0 : n <= max * 0.25 ? 1 : n <= max * 0.5 ? 2 : n <= max * 0.75 ? 3 : 4;
+  let rects = "", months = "", lastMonth = -1;
+  weeks.forEach((wk, x) => {
+    wk.contributionDays.forEach(d => {
+      const dt = new Date(d.date + "T00:00:00Z"), y = dt.getUTCDay();
+      if (y === 0 || x === 0) { const m = dt.getUTCMonth(); if (m !== lastMonth && x < weeks.length - 2) { months += `<text x="${left + x * step}" y="11">${dt.toLocaleString("en", { month: "short", timeZone: "UTC" })}</text>`; lastMonth = m; } }
+      rects += `<rect x="${left + x * step}" y="${top + y * step}" width="${cell}" height="${cell}" rx="2" class="l${lvl(d.contributionCount)}"><title>${d.date}: ${d.contributionCount} contribution${d.contributionCount === 1 ? "" : "s"}</title></rect>`;
+    });
+  });
+  const days = ["", "Mon", "", "Wed", "", "Fri", ""].map((t, i) => t ? `<text x="0" y="${top + i * step + 9}">${t}</text>` : "").join("");
+  return { total: c.contributionCalendar.totalContributions, svg: `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="${c.contributionCalendar.totalContributions} GitHub contributions in the last year">${months}${days}${rects}</svg>` };
+}
+const contrib = contribSvg();
+
 let out = tpl
+  .replace(/\{\{contrib:svg\}\}/g, () => contrib.svg)
+  .replace(/\{\{contrib:total\}\}/g, () => String(contrib.total))
   .replace(/\{\{svg:([a-z0-9-]+)(?::([a-z0-9 -]+))?\}\}/g, (_, slug, cls) => svgInline(slug, cls))
   .replace(/\{\{path:([a-z0-9-]+)\}\}/g, (_, slug) => pathOnly(slug))
   .replace(/\{\{glyph:([a-z0-9-]+):([#a-zA-Z0-9]+)\}\}/g, (_, slug, color) => glyphUri(slug, color))

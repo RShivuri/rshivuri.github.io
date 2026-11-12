@@ -47,6 +47,12 @@ That writes `src/page.html` (artifact fragment) and `index.html` (standalone sit
 that `build.js` fills from `assets-raw/`: `{{svg:slug}}` inlines a simple-icons glyph, `{{img:file}}` embeds a logo or
 badge as a data URI, `{{glyph:slug:#hex}}` makes a tinted glyph for the Canvas animation.
 
+The contribution map under the hero comes from `assets-raw/contrib.json`. Refresh it before a rebuild with:
+
+```bash
+MSYS_NO_PATHCONV=1 gh api graphql -f query='query{ user(login:"RShivuri"){ contributionsCollection{ totalCommitContributions restrictedContributionsCount contributionCalendar{ totalContributions weeks{ contributionDays{ date contributionCount } } } } } }' > assets-raw/contrib.json
+```
+
 `assets-raw/` holds the downloaded brand assets: Microsoft certification badge SVGs (learn.microsoft.com),
 Paycorp, Xiquel Group, Coca-Cola Beverages Africa and Rhodes University logos (their own sites and favicons),
 and simple-icons glyphs. They identify employers and credentials, which is normal portfolio use, but each remains

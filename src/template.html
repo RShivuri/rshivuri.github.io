@@ -110,12 +110,22 @@ code{font-family:var(--font-mono);font-size:.9em;background:var(--surface-2);pad
 .track .logo .tile img{height:26px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
-/* proof */
-.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem 2rem;padding-block:2.5rem}
-.proof div{min-width:0;border-left:2px solid var(--line-2);padding-left:1rem}
-.proof b{display:block;font-family:var(--font-display);font-stretch:125%;font-size:2.4rem;font-weight:800;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;line-height:1;color:var(--fg)}
-.proof b small{font-size:1.3rem;color:var(--accent)}
-.proof .desc{display:block;color:var(--muted);font-size:.92rem;margin-top:.45rem}
+/* contribution map */
+.contrib{padding-block:2.2rem 2.4rem;display:grid;gap:.9rem}
+.contrib-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.contrib-head p{color:var(--muted)}
+.contrib-head b{font-family:var(--font-display);font-stretch:125%;font-size:2rem;font-weight:800;letter-spacing:-0.02em;color:var(--fg);margin-right:.3rem;font-variant-numeric:tabular-nums}
+.contrib-head a{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;font-family:var(--font-mono);font-size:.84rem;color:var(--muted)}
+.contrib-head a:hover{color:var(--accent)}
+.contrib-map{overflow-x:auto;padding:1rem;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.contrib-map svg{display:block;font-family:var(--font-mono);font-size:10px;max-width:none}
+.contrib-map text{fill:var(--muted)}
+.contrib-map .l0{fill:var(--bg-2);stroke:var(--line);stroke-width:.5}
+.contrib-map .l1{fill:color-mix(in srgb,var(--accent) 30%,var(--surface))}
+.contrib-map .l2{fill:color-mix(in srgb,var(--accent) 55%,var(--surface))}
+.contrib-map .l3{fill:color-mix(in srgb,var(--accent) 80%,var(--surface))}
+.contrib-map .l4{fill:var(--accent)}
+.contrib-foot{font-size:.86rem;color:var(--muted)}
 
 /* sections */
 section{padding-block:4rem;border-top:1px solid var(--line)}
@@ -210,7 +220,6 @@ footer small{color:var(--muted);display:block;margin-top:.8rem}
 @media (max-width:900px){
   .hero{grid-template-columns:1fr;gap:2.2rem;padding-block:2.6rem}
   .sec-head,.case{grid-template-columns:1fr}
-  .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ai,.certs,.skills,.repos,.rules{grid-template-columns:1fr}
   .cert.expert{grid-column:span 1;grid-template-columns:72px minmax(0,1fr)}
   .cert.expert img{width:72px;height:72px}
@@ -277,11 +286,13 @@ footer small{color:var(--muted);display:block;margin-top:.8rem}
     </div>
   </div>
 
-  <div class="proof" aria-label="Numbers">
-    <div><b><span class="count" data-to="267">267</span></b><span class="desc">commits on the ATM CRM repo since August 2026</span></div>
-    <div><b><span class="count" data-to="80">80</span><small>+</small></b><span class="desc">documented production changes in three months</span></div>
-    <div><b><span class="count" data-to="5">5</span></b><span class="desc">change-control processes proven end to end before every release</span></div>
-    <div><b><span class="count" data-to="6">6</span></b><span class="desc">Microsoft certifications, including the PL-600 architect expert</span></div>
+  <div class="contrib" aria-label="GitHub contributions">
+    <div class="contrib-head">
+      <p><b>{{contrib:total}}</b> contributions on GitHub in the last year</p>
+      <a href="https://github.com/RShivuri" rel="noopener">{{svg:github}} github.com/RShivuri</a>
+    </div>
+    <div class="contrib-map">{{contrib:svg}}</div>
+    <p class="contrib-foot">Private repositories included. Public ones are practice; the day job is private.</p>
   </div>
 
   <section id="work">
@@ -704,18 +715,7 @@ footer small{color:var(--muted);display:block;margin-top:.8rem}
   var track=document.getElementById("track");
   if(track && !reduce){ track.innerHTML += track.innerHTML; }
 
-  /* ---------- counters ---------- */
-  var counters=document.querySelectorAll(".count");
-  if(!reduce && "IntersectionObserver" in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(!en.isIntersecting) return; io.unobserve(en.target);
-        var el=en.target, to=+el.getAttribute("data-to"), start=null;
-        function tick(ts){ if(!start) start=ts; var k=Math.min(1,(ts-start)/900); k=1-Math.pow(1-k,3); el.textContent=Math.round(to*k); if(k<1) requestAnimationFrame(tick); }
-        requestAnimationFrame(tick);
-      });
-    },{threshold:.6});
-    counters.forEach(function(c){ io.observe(c); });
-  }
+  /* ---------- contribution map: start scrolled to the most recent weeks on narrow screens ---------- */
+  var map=document.querySelector(".contrib-map"); if(map) map.scrollLeft=map.scrollWidth;
 })();
 </script>
