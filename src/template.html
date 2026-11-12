@@ -1,0 +1,716 @@
+<title>Ronell Shivuri</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ronell Shivuri. Senior Dynamics 365 and Power Platform engineer, C# .NET backend developer, Microsoft Certified Power Platform Solution Architect Expert. Johannesburg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,700;112,800;125,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark-first operations console. One 1120px column. The hero pairs an extended-width headline
+   with a live Canvas pipeline (the one bold element). Logos and badges are real; motion is the pipeline,
+   a slow client marquee, counters, and dashed flow on the diagrams. */
+:root{
+  --bg:#070B12;           /* deep ink */
+  --bg-2:#0B1120;
+  --surface:#0F1726;
+  --surface-2:#141E31;
+  --fg:#EEF2F8;
+  --muted:#8E9BB3;
+  --line:#1E2A3D;
+  --line-2:#2A3850;
+  --accent:#5B86FF;       /* cobalt signal */
+  --accent-ink:#0B1220;
+  --accent-soft:rgba(91,134,255,.14);
+  --amber:#FFB547;        /* approval gates */
+  --amber-soft:rgba(255,181,71,.14);
+  --green:#3DD6A3;        /* approved */
+  --green-soft:rgba(61,214,163,.14);
+  --tile:#FFFFFF;         /* logo tiles stay white so brand colours read */
+  --glow:rgba(91,134,255,.28);
+  --font-display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;
+  --font-body:"IBM Plex Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"IBM Plex Mono","Cascadia Mono",Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#F4F6FB; --bg-2:#EBEFF7; --surface:#FFFFFF; --surface-2:#F1F4FA; --fg:#0B1220; --muted:#5B6880;
+    --line:#DCE2EE; --line-2:#C9D2E3; --accent:#2F5BFF; --accent-ink:#FFFFFF; --accent-soft:rgba(47,91,255,.10);
+    --amber:#B97400; --amber-soft:rgba(185,116,0,.12); --green:#0F8A62; --green-soft:rgba(15,138,98,.12);
+    --tile:#FFFFFF; --glow:rgba(47,91,255,.18); color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F4F6FB; --bg-2:#EBEFF7; --surface:#FFFFFF; --surface-2:#F1F4FA; --fg:#0B1220; --muted:#5B6880;
+  --line:#DCE2EE; --line-2:#C9D2E3; --accent:#2F5BFF; --accent-ink:#FFFFFF; --accent-soft:rgba(47,91,255,.10);
+  --amber:#B97400; --amber-soft:rgba(185,116,0,.12); --green:#0F8A62; --green-soft:rgba(15,138,98,.12);
+  --tile:#FFFFFF; --glow:rgba(47,91,255,.18); color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0;
+  background-image:radial-gradient(circle at 1px 1px,var(--line) 1px,transparent 0);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance;line-height:1.02}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;font-stretch:112%;letter-spacing:-0.015em}
+h3{font-size:1.3rem;font-weight:700;font-stretch:112%}
+p{margin:0}
+ul{margin:0;padding-left:1.2em}
+li{margin:.2em 0}
+code{font-family:var(--font-mono);font-size:.9em;background:var(--surface-2);padding:.05em .35em;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto}
+.muted{color:var(--muted)}
+.ico{width:1.1em;height:1.1em;vertical-align:-0.2em;flex:none}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.75rem;flex-wrap:wrap}
+.brand{font-family:var(--font-display);font-weight:800;font-stretch:125%;font-size:1.05rem;text-decoration:none;letter-spacing:.01em;display:inline-flex;align-items:center;gap:.6rem}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--green-soft)}
+.nav ul{list-style:none;display:flex;gap:1.4rem;padding:0;flex-wrap:wrap}
+.nav li a{text-decoration:none;font-size:.95rem;color:var(--muted)}
+.nav li a:hover{color:var(--fg)}
+
+/* hero */
+.hero{position:relative;padding-block:4rem 3rem;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:2.5rem 3rem;align-items:center}
+.hero::before{content:"";position:absolute;inset:-10% -20% auto auto;width:60%;height:120%;background:radial-gradient(closest-side,var(--glow),transparent 70%);pointer-events:none;z-index:-1}
+.kicker{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-mono);font-size:.82rem;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:.3rem .8rem .3rem .5rem;background:var(--surface)}
+.kicker b{color:var(--green);font-weight:500}
+.hero h1{font-size:clamp(2.4rem,4.6vw,3.9rem);font-weight:800;font-stretch:125%;letter-spacing:-0.02em;line-height:.96;margin-top:1.2rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{font-size:1.12rem;margin-top:1.4rem;max-width:50ch;color:var(--muted)}
+.hero .lede strong{color:var(--fg);font-weight:600}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1.1rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:.98rem;border:1.5px solid var(--line-2);background:var(--surface)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.12);color:var(--accent-ink)}
+.btn:not(.primary):hover{border-color:var(--accent);color:var(--fg)}
+.btn .ico{width:18px;height:18px}
+
+.stage{position:relative;min-width:0}
+.stage canvas{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);background:linear-gradient(180deg,var(--surface),var(--bg-2));box-shadow:0 40px 80px -40px var(--glow)}
+.stage .legend{position:absolute;left:14px;top:12px;font-family:var(--font-mono);font-size:.74rem;color:var(--muted);display:flex;gap:.9rem;flex-wrap:wrap}
+.stage .legend span{display:inline-flex;align-items:center;gap:.35rem}
+.stage .legend i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.stage .ctl{position:absolute;right:12px;top:10px;font-family:var(--font-mono);font-size:.74rem;background:var(--surface);border:1px solid var(--line-2);color:var(--muted);border-radius:6px;padding:.25rem .55rem;cursor:pointer}
+.stage .ctl:hover{color:var(--fg);border-color:var(--accent)}
+
+/* clients marquee */
+.clients{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:1.2rem;overflow:hidden;position:relative}
+.clients p{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);margin-bottom:.9rem}
+.track{display:flex;gap:3.5rem;width:max-content;animation:marquee 38s linear infinite}
+.clients:hover .track{animation-play-state:paused}
+.track .logo{display:inline-flex;align-items:center;gap:.7rem;color:var(--muted);font-weight:600;font-size:.95rem;white-space:nowrap}
+.track .logo img,.track .logo svg{height:30px;width:auto}
+.track .logo .tile{background:var(--tile);border-radius:8px;padding:5px 8px;display:inline-flex;align-items:center}
+.track .logo .tile img{height:26px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem 2rem;padding-block:2.5rem}
+.proof div{min-width:0;border-left:2px solid var(--line-2);padding-left:1rem}
+.proof b{display:block;font-family:var(--font-display);font-stretch:125%;font-size:2.4rem;font-weight:800;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;line-height:1;color:var(--fg)}
+.proof b small{font-size:1.3rem;color:var(--accent)}
+.proof .desc{display:block;color:var(--muted);font-size:.92rem;margin-top:.45rem}
+
+/* sections */
+section{padding-block:4rem;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1.2rem 3rem;margin-bottom:2.4rem;align-items:end}
+.sec-head p{max-width:58ch;color:var(--muted)}
+.sec-head .n{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);display:block;margin-bottom:.5rem}
+
+/* case studies */
+.case{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:2rem 3rem;padding-block:2.6rem;border-top:1px dashed var(--line-2)}
+.case:first-of-type{border-top:0;padding-top:0}
+.case h3{font-size:1.65rem;margin-bottom:.4rem}
+.case .tag{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-size:.86rem;color:var(--accent);font-weight:600;margin-bottom:1.1rem}
+.case .tag .ico{width:18px;height:18px}
+.case dl{display:grid;gap:1.1rem;margin:0}
+.case dt{font-weight:600;font-size:.92rem;color:var(--muted)}
+.case dd{margin:.2rem 0 0;max-width:62ch}
+.stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.chip{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.78rem;padding:.25rem .6rem;border:1px solid var(--line-2);border-radius:6px;background:var(--surface);color:var(--fg)}
+.chip .ico{width:14px;height:14px;color:var(--muted)}
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem;min-width:0;align-self:start}
+.diagram svg{width:100%;height:auto;display:block;font-family:var(--font-mono);font-size:11px}
+.diagram .box{fill:var(--bg-2);stroke:var(--line-2)}
+.diagram .box.hi{fill:var(--accent-soft);stroke:var(--accent)}
+.diagram .box.ext{fill:var(--amber-soft);stroke:var(--amber)}
+.diagram .box.ok{fill:var(--green-soft);stroke:var(--green)}
+.diagram text{fill:var(--fg)}
+.diagram .lbl{fill:var(--muted);font-size:10px}
+.diagram .edge{stroke:var(--line-2);fill:none;stroke-width:1.4}
+.diagram .flow{stroke:var(--accent);fill:none;stroke-width:1.6;stroke-dasharray:5 7;animation:dash 1.4s linear infinite}
+.diagram .glyph{fill:var(--fg)}
+.diagram figcaption{font-size:.84rem;color:var(--muted);margin-top:.7rem}
+@keyframes dash{to{stroke-dashoffset:-24}}
+
+/* AI */
+.ai{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.ai article{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem;min-width:0;display:grid;gap:.6rem;align-content:start}
+.ai .mark{width:44px;height:44px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.ai .mark .ico{width:22px;height:22px}
+.ai .mark.amber{background:var(--amber-soft);color:var(--amber)}
+.ai .mark.green{background:var(--green-soft);color:var(--green)}
+.ai h3{font-size:1.15rem}
+.ai p{color:var(--muted);font-size:.97rem}
+.ai .how{font-family:var(--font-mono);font-size:.78rem;color:var(--muted)}
+.rules{margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.rules div{border-left:2px solid var(--green);padding-left:.9rem;font-size:.95rem;color:var(--muted)}
+.rules div b{color:var(--fg);display:block;font-weight:600}
+
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.cert{display:grid;grid-template-columns:56px minmax(0,1fr);gap:1rem;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:1rem 1.1rem;min-width:0;text-decoration:none}
+.cert:hover{border-color:var(--accent);color:inherit}
+.cert img{width:56px;height:56px;display:block}
+.cert .code{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);font-weight:500}
+.cert .name{font-weight:600;line-height:1.3;display:block}
+.cert .lvl{font-size:.82rem;color:var(--muted);display:block}
+.cert.expert{grid-column:span 3;grid-template-columns:96px minmax(0,1fr) auto;border-color:var(--accent);background:linear-gradient(135deg,var(--accent-soft),var(--surface) 60%);box-shadow:0 30px 60px -40px var(--glow)}
+.cert.expert img{width:96px;height:96px}
+.cert.expert .name{font-family:var(--font-display);font-stretch:112%;font-size:1.5rem;font-weight:800;line-height:1.05}
+.cert.expert .pill{font-family:var(--font-mono);font-size:.78rem;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:.3rem .7rem;white-space:nowrap}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 2.5rem;margin-top:2.6rem}
+.skills h3{font-size:1rem;margin-bottom:.7rem;padding-bottom:.5rem;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.5rem}
+.skills h3 .ico{color:var(--accent)}
+.skills ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.skills li{margin:0}
+
+/* experience */
+.xp{display:grid;grid-template-columns:150px 64px minmax(0,1fr);gap:.5rem 1.4rem;padding-block:1.6rem;border-top:1px solid var(--line);align-items:start}
+.xp:first-of-type{border-top:0}
+.xp .when{font-family:var(--font-mono);font-size:.82rem;color:var(--muted);padding-top:.5rem;font-variant-numeric:tabular-nums}
+.xp .logo{width:64px;height:64px;border-radius:12px;background:var(--tile);display:grid;place-items:center;padding:8px;border:1px solid var(--line)}
+.xp .logo img{max-width:100%;max-height:100%;display:block}
+.xp h3{font-size:1.2rem}
+.xp .org{color:var(--muted);margin-bottom:.5rem;font-size:.95rem}
+.xp ul{max-width:70ch;font-size:.97rem}
+
+/* repos */
+.repos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.repo{border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;text-decoration:none;display:grid;gap:.35rem;min-width:0;background:var(--surface)}
+.repo:hover{border-color:var(--accent);color:inherit}
+.repo b{font-family:var(--font-mono);font-size:.88rem;font-weight:500;display:flex;align-items:center;gap:.5rem;overflow-wrap:anywhere}
+.repo b .ico{color:var(--muted)}
+.repo span{font-size:.9rem;color:var(--muted)}
+.repo .lang{font-family:var(--font-mono);font-size:.74rem;color:var(--accent)}
+
+/* footer */
+footer{padding-block:3.5rem 2.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 2rem;align-items:end}
+footer .links{display:flex;gap:.8rem;flex-wrap:wrap}
+footer .links a{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;border:1px solid var(--line-2);border-radius:8px;padding:.55rem .9rem;font-weight:600;font-size:.95rem;background:var(--surface)}
+footer .links a:hover{border-color:var(--accent)}
+footer small{color:var(--muted);display:block;margin-top:.8rem}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:2.2rem;padding-block:2.6rem}
+  .sec-head,.case{grid-template-columns:1fr}
+  .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ai,.certs,.skills,.repos,.rules{grid-template-columns:1fr}
+  .cert.expert{grid-column:span 1;grid-template-columns:72px minmax(0,1fr)}
+  .cert.expert img{width:72px;height:72px}
+  .cert.expert .pill{display:none}
+  .xp{grid-template-columns:64px minmax(0,1fr)}
+  .xp .when{grid-column:1/-1;padding-top:0}
+  footer{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .track{animation:none;flex-wrap:wrap;width:auto}
+  .diagram .flow{animation:none;stroke-dasharray:none}
+}
+</style>
+
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="brand" href="#top"><i aria-hidden="true"></i>RONELL SHIVURI</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#ai">AI workflow</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <div>
+      <span class="kicker"><b>&#9679; prod</b> release v2026.11 &middot; approved &middot; Johannesburg</span>
+      <h1>I build the backend behind the CRM, and the <em>pipeline</em> that ships both.</h1>
+      <p class="lede"><strong>Senior Dynamics 365 and Power Platform engineer</strong> at Paycorp, writing C# / .NET 8 services for payments and ATM onboarding. Microsoft Certified Power Platform Solution Architect Expert.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="https://github.com/RShivuri" rel="noopener">{{svg:github}} RShivuri</a>
+        <a class="btn" href="https://www.linkedin.com/in/ronell-shivuri-6bb476168" rel="noopener">{{svg:linkedin}} LinkedIn</a>
+      </div>
+    </div>
+
+    <figure class="stage" aria-label="Animated pipeline: records from Dynamics 365, WhatsApp and SQL flow through a .NET 8 API, then dev, QA and production with approval gates">
+      <canvas id="pipe" width="640" height="460"></canvas>
+      <div class="legend"><span><i style="background:var(--accent)"></i>record</span><span><i style="background:var(--amber)"></i>gate</span><span><i style="background:var(--green)"></i>approved</span></div>
+      <button class="ctl" id="pipeToggle" type="button" aria-pressed="false">pause</button>
+    </figure>
+  </header>
+
+  <div class="clients" aria-label="Employers, university and certifying body">
+    <p>Worked with, studied at, certified by</p>
+    <div class="track" id="track">
+      <span class="logo"><span class="tile"><img src="{{img:paycorp-fav.png}}" alt=""></span>Paycorp Group</span>
+      <span class="logo"><span class="tile"><img src="{{img:xiquel-logo01.png}}" alt=""></span>Xiquel Group</span>
+      <span class="logo"><span class="tile"><img src="{{img:fav-ccbagroup.com.png}}" alt=""></span>Coca-Cola Beverages Africa</span>
+      <span class="logo"><span class="tile"><img src="{{img:ru-logo.png}}" alt=""></span>Rhodes University</span>
+      <span class="logo">{{svg:microsoft}}Microsoft Certified &times;6</span>
+      <span class="logo">{{svg:dotnet}}.NET 8</span>
+      <span class="logo">{{svg:azuredevops}}Azure DevOps</span>
+      <span class="logo">{{svg:anthropic}}Claude + MCP</span>
+      <span class="logo">{{svg:githubcopilot}}GitHub Copilot</span>
+      <span class="logo">{{svg:meta}}Meta Cloud API</span>
+    </div>
+  </div>
+
+  <div class="proof" aria-label="Numbers">
+    <div><b><span class="count" data-to="267">267</span></b><span class="desc">commits on the ATM CRM repo since August 2026</span></div>
+    <div><b><span class="count" data-to="80">80</span><small>+</small></b><span class="desc">documented production changes in three months</span></div>
+    <div><b><span class="count" data-to="5">5</span></b><span class="desc">change-control processes proven end to end before every release</span></div>
+    <div><b><span class="count" data-to="6">6</span></b><span class="desc">Microsoft certifications, including the PL-600 architect expert</span></div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head">
+      <h2><span class="n">selected work</span>Three systems, told the same way</h2>
+      <p>What was wrong, what I built, and how it is put together. The first two are my own .NET 8 builds. The third is the day job.</p>
+    </div>
+
+    <article class="case">
+      <div>
+        <h3>Multi-tenant WhatsApp CPaaS and e-commerce backend</h3>
+        <p class="tag">{{svg:whatsapp}} {{svg:dotnet}} C# &middot; .NET 8 &middot; Minimal APIs &middot; Clean Architecture &middot; Meta Cloud API</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>Small merchants sell on WhatsApp by hand: a catalogue pasted into chats, orders copied into spreadsheets, payment confirmations lost in threads. Serving many of them from one platform means every tenant needs its own number, catalogue, keys and order book, while Meta exposes a single webhook that must answer in seconds and may redeliver.</dd>
+          <dt>The solution</dt>
+          <dd>One .NET 8 service resolves the tenant from the inbound <code>phone_number_id</code>, verifies the <code>X-Hub-Signature-256</code> header, acknowledges the webhook immediately and hands the event to a background processor. Message ids are stored for idempotency, so a redelivery never creates a second order. Catalogue, cart, order and payment link are aggregates in the domain layer. Outbound messages go through an outbox so a failed send is retried without duplicating the customer's conversation.</dd>
+          <dt>Architecture</dt>
+          <dd>Domain, Application, Infrastructure and Api projects. Minimal API endpoints grouped per bounded context with typed results and an endpoint filter for tenant resolution. EF Core with a tenant-scoped <code>DbContext</code>. Hosted services for the inbound queue and the outbox. Public media from a separate assets repository.</dd>
+        </dl>
+        <div class="stack">
+          <span class="chip">{{svg:dotnet}}.NET 8</span><span class="chip">Minimal APIs</span><span class="chip">EF Core</span><span class="chip">{{svg:meta}}Meta Cloud API</span><span class="chip">Webhooks</span><span class="chip">Outbox</span><span class="chip">Multi-tenancy</span><span class="chip">{{svg:azuredevops}}Azure DevOps</span>
+        </div>
+      </div>
+      <figure class="diagram">
+        <svg viewBox="0 0 420 300" role="img" aria-label="Webhook flows from Meta through tenant resolution into a queue, then domain handlers and an outbox back to Meta">
+          <rect class="box ext" x="10" y="20" width="135" height="44" rx="8"/><text x="92" y="38" text-anchor="middle">Meta Cloud API</text><text class="lbl" x="92" y="54" text-anchor="middle">webhook + send</text>
+          <svg x="16" y="31" width="20" height="20" viewBox="0 0 24 24"><path class="glyph" d="{{path:whatsapp}}"/></svg>
+          <rect class="box hi" x="160" y="20" width="250" height="44" rx="8"/><text x="285" y="38" text-anchor="middle">POST /webhooks/whatsapp</text><text class="lbl" x="285" y="54" text-anchor="middle">verify signature &middot; resolve tenant &middot; 200 OK</text>
+          <path class="flow" d="M145 42 L160 42"/>
+          <rect class="box" x="160" y="96" width="250" height="40" rx="8"/><text x="285" y="112" text-anchor="middle">Inbound queue</text><text class="lbl" x="285" y="127" text-anchor="middle">message id = idempotency key</text>
+          <path class="flow" d="M285 64 L285 96"/>
+          <rect class="box" x="160" y="168" width="118" height="54" rx="8"/><text x="219" y="188" text-anchor="middle">Catalogue</text><text class="lbl" x="219" y="204" text-anchor="middle">per tenant</text>
+          <rect class="box" x="292" y="168" width="118" height="54" rx="8"/><text x="351" y="188" text-anchor="middle">Cart &middot; Order</text><text class="lbl" x="351" y="204" text-anchor="middle">payment link</text>
+          <path class="edge" d="M285 136 L285 150 L219 150 L219 168"/><path class="edge" d="M285 150 L351 150 L351 168"/>
+          <rect class="box ok" x="160" y="252" width="250" height="40" rx="8"/><text x="285" y="268" text-anchor="middle">Outbox &middot; send worker</text><text class="lbl" x="285" y="283" text-anchor="middle">retry without duplicate replies</text>
+          <path class="edge" d="M219 222 L219 238 L285 238 L285 252"/><path class="edge" d="M351 222 L351 238 L285 238"/>
+          <path class="flow" d="M160 272 L70 272 L70 64"/>
+          <rect class="box" x="10" y="120" width="120" height="44" rx="8"/><text x="70" y="138" text-anchor="middle">Tenant store</text><text class="lbl" x="70" y="154" text-anchor="middle">keys &middot; templates</text>
+          <path class="edge" d="M130 142 L145 142 L145 42"/>
+        </svg>
+        <figcaption>Every tenant shares one endpoint and one worker fleet, and nothing else.</figcaption>
+      </figure>
+    </article>
+
+    <article class="case">
+      <div>
+        <h3>Synthetic South African identity and banking data API</h3>
+        <p class="tag">{{svg:dotnet}} C# &middot; .NET 8 &middot; Minimal APIs &middot; Luhn &middot; AVS &middot; civil registry</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>CRM and payments systems in South Africa validate what they ingest: a 13-digit ID number must pass the Luhn check and encode a real birth date, gender range and citizenship digit; a bank account must survive Account Verification Service (AVS) rules on branch code and account type. Teams either tested with production data they should not have had, or with fake data the validators rejected before the real logic ran.</dd>
+          <dt>The solution</dt>
+          <dd>An API that generates records which pass every validator and carry no real person. Identity profiles are built from a birth date, a sequence in the correct gender range, the citizenship digit and a computed Luhn check digit. Banking details come per bank with valid universal branch codes and the AVS outcome a tester wants (match, no match, account closed). Civil registry events (birth, marriage, death) are linked records, so a death can invalidate the identity it belongs to. Every request takes a seed, so a fixture is regenerated byte for byte in another environment.</dd>
+          <dt>Architecture</dt>
+          <dd>Endpoints under <code>/v1/identities</code>, <code>/v1/bank-accounts</code> and <code>/v1/civil-registry</code>, each backed by a pure generator in the domain layer with no I/O, which is what makes the output deterministic and unit-testable. Bulk endpoints stream NDJSON or CSV so a Dataverse seeder loads thousands of rows in one call.</dd>
+        </dl>
+        <div class="stack">
+          <span class="chip">{{svg:dotnet}}.NET 8</span><span class="chip">Minimal APIs</span><span class="chip">Luhn</span><span class="chip">Deterministic seeds</span><span class="chip">NDJSON streaming</span><span class="chip">xUnit</span><span class="chip">Dataverse seeding</span>
+        </div>
+      </div>
+      <figure class="diagram">
+        <svg viewBox="0 0 420 230" role="img" aria-label="Structure of a South African ID number with the Luhn check digit, and the generator pipeline">
+          <text x="10" y="22" style="font-size:12px;font-weight:500">ID number anatomy</text>
+          <rect class="box hi" x="10" y="36" width="110" height="46" rx="8"/><text x="65" y="56" text-anchor="middle" style="font-size:16px">98 03 14</text><text class="lbl" x="65" y="72" text-anchor="middle">YYMMDD birth</text>
+          <rect class="box hi" x="128" y="36" width="88" height="46" rx="8"/><text x="172" y="56" text-anchor="middle" style="font-size:16px">5 0 8 4</text><text class="lbl" x="172" y="72" text-anchor="middle">&ge;5000 male</text>
+          <rect class="box" x="224" y="36" width="44" height="46" rx="8"/><text x="246" y="56" text-anchor="middle" style="font-size:16px">0</text><text class="lbl" x="246" y="72" text-anchor="middle">citizen</text>
+          <rect class="box" x="276" y="36" width="44" height="46" rx="8"/><text x="298" y="56" text-anchor="middle" style="font-size:16px">8</text><text class="lbl" x="298" y="72" text-anchor="middle">legacy</text>
+          <rect class="box ext" x="328" y="36" width="82" height="46" rx="8"/><text x="369" y="56" text-anchor="middle" style="font-size:16px">3</text><text class="lbl" x="369" y="72" text-anchor="middle">Luhn check</text>
+          <text x="10" y="116" style="font-size:12px;font-weight:500">Generator pipeline</text>
+          <rect class="box" x="10" y="130" width="92" height="36" rx="8"/><text x="56" y="152" text-anchor="middle">seed</text>
+          <rect class="box" x="118" y="130" width="92" height="36" rx="8"/><text x="164" y="152" text-anchor="middle">identity</text>
+          <rect class="box" x="226" y="130" width="92" height="36" rx="8"/><text x="272" y="152" text-anchor="middle">banking</text>
+          <rect class="box" x="334" y="130" width="76" height="36" rx="8"/><text x="372" y="152" text-anchor="middle">registry</text>
+          <path class="flow" d="M102 148 L118 148"/><path class="flow" d="M210 148 L226 148"/><path class="flow" d="M318 148 L334 148"/>
+          <rect class="box ok" x="10" y="186" width="400" height="34" rx="8"/><text x="210" y="207" text-anchor="middle">same seed in, same records out, in every environment</text>
+          <path class="edge" d="M372 166 L372 186"/><path class="edge" d="M56 166 L56 186"/>
+        </svg>
+        <figcaption>The example ID is synthetic. The check digit is computed, so the record passes the same validator a real one would.</figcaption>
+      </figure>
+    </article>
+
+    <article class="case">
+      <div>
+        <h3>Enterprise CRM automation and white-label delivery at Paycorp Group</h3>
+        <p class="tag">{{svg:microsoft}} {{svg:azuredevops}} Dynamics 365 CE &middot; Dataverse &middot; Power Automate &middot; Azure DevOps &middot; C# SDK harness</p>
+        <dl>
+          <dt>The problem</dt>
+          <dd>An ATM and payments CRM where sales-to-live onboarding, change control, settlement and banking integration all ran through hand-built flows and hand deployments. Flow families drifted between dev, QA and production. Production automation ran on personal accounts. Nobody could say, before a release, whether a Change of Ownership or a Rebrand would still reach the Settlement queue.</dd>
+          <dt>The solution</dt>
+          <dd>An Azure DevOps release pipeline that deploys a versioned manifest to QA and then production, with a pre-flight check, a service-principal identity and two-person approval at each stage. A C# .NET test harness on the Dataverse SDK that drives records through business process flows and approval queues, proving five change-control processes end to end before every release. Brand-specific white-label email templates and notifications for portal tickets, customer acknowledgements and team alerts. Production automation moved onto service accounts, and every flow family aligned to one definition across environments.</dd>
+          <dt>How the work is done</dt>
+          <dd>Forensic analysis of the live flow definition, a patch in dev, a component diff against the target, and a read-back after every deploy. Each change is a change record with evidence. Solution architecture packs (arc42, C4, ERD, event-pipeline maps) and AI-assisted runbooks let the rest of the team investigate and change Dataverse safely.</dd>
+        </dl>
+        <div class="stack">
+          <span class="chip">Dataverse Web API</span><span class="chip">Dataverse SDK</span><span class="chip">{{svg:powerautomate}}Power Automate</span><span class="chip">PAC CLI</span><span class="chip">XrmToolBox</span><span class="chip">FetchXML</span><span class="chip">{{svg:azuredevops}}Pipelines</span><span class="chip">SQL Server</span><span class="chip">{{svg:uipath}}UiPath</span>
+        </div>
+      </div>
+      <figure class="diagram">
+        <svg viewBox="0 0 420 250" role="img" aria-label="Release pipeline: dev by hand, test harness, versioned manifest, then QA and production behind approvals">
+          <rect class="box" x="10" y="20" width="118" height="50" rx="8"/><text x="69" y="40" text-anchor="middle">dev</text><text class="lbl" x="69" y="56" text-anchor="middle">patch + diff by hand</text>
+          <rect class="box ext" x="150" y="20" width="118" height="50" rx="8"/><text x="209" y="40" text-anchor="middle">e2e harness</text><text class="lbl" x="209" y="56" text-anchor="middle">5 processes, C# SDK</text>
+          <rect class="box hi" x="290" y="20" width="120" height="50" rx="8"/><text x="350" y="40" text-anchor="middle">release.json</text><text class="lbl" x="350" y="56" text-anchor="middle">versioned manifest</text>
+          <path class="flow" d="M128 45 L150 45"/><path class="flow" d="M268 45 L290 45"/>
+          <path class="flow" d="M350 70 L350 100"/>
+          <rect class="box" x="10" y="100" width="400" height="36" rx="8"/><text x="210" y="122" text-anchor="middle">pre-flight check &middot; service principal &middot; two approvals</text>
+          <path class="flow" d="M120 136 L120 160"/><path class="flow" d="M300 136 L300 160"/>
+          <rect class="box ok" x="40" y="160" width="160" height="44" rx="8"/><text x="120" y="179" text-anchor="middle">QA</text><text class="lbl" x="120" y="195" text-anchor="middle">import &middot; reactivate &middot; read back</text>
+          <rect class="box ok" x="220" y="160" width="160" height="44" rx="8"/><text x="300" y="179" text-anchor="middle">production</text><text class="lbl" x="300" y="195" text-anchor="middle">second approval gate</text>
+          <path class="flow" d="M200 182 L220 182"/>
+          <text class="lbl" x="210" y="236" text-anchor="middle">Replaced hand deployments. 80+ changes shipped this way in three months.</text>
+        </svg>
+        <figcaption>The same manifest, promoted twice. Nothing reaches production that the harness did not pass in dev.</figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <section id="ai">
+    <div class="sec-head">
+      <h2><span class="n">ai in the loop</span>Evidence first, then the edit</h2>
+      <p>Claude, MCP servers and GitHub Copilot are in the loop every day. They do not replace the engineering. They remove the waiting between a question and the evidence.</p>
+    </div>
+    <div class="ai">
+      <article>
+        <div class="mark">{{svg:anthropic}}</div>
+        <p class="how">claude code + mcp servers</p>
+        <h3>Investigate before changing</h3>
+        <p>Dataverse, Jira, Postman and SQL are wired into Claude Code as MCP servers. A stuck case or a flow that "never failed" is traced from the stored definition and the run history in minutes, read-only, before a single edit. The findings become a skill the team reuses.</p>
+      </article>
+      <article>
+        <div class="mark amber">{{svg:dotnet}}</div>
+        <p class="how">synthetic test data</p>
+        <h3>Design the data, then generate it</h3>
+        <p>I describe the shape a scenario needs, a terminal already in contract year two, a merchant with no banking, a Rebrand across 40 sites, and Claude drives the synthetic data API and the seeder to produce it. Every fixture is seeded and reproducible, never copied from production.</p>
+      </article>
+      <article>
+        <div class="mark green">{{svg:githubcopilot}}</div>
+        <p class="how">copilot + design packs</p>
+        <h3>Ship with a paper trail</h3>
+        <p>Copilot writes the boilerplate in the IDE. Claude drafts the arc42 architecture pack, the C4 diagrams and the change record from the actual code and the actual org. I review, decide and sign off. More shipped per week, and nothing shipped without a record.</p>
+      </article>
+    </div>
+    <div class="rules">
+      <div><b>Ask first.</b> A production data write needs a human go-ahead, in writing.</div>
+      <div><b>Dry run by default.</b> Scripts refuse to run twice on their own output.</div>
+      <div><b>Read back.</b> Every written row is read back and kept as evidence.</div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="sec-head">
+      <h2><span class="n">certifications and stack</span>Six Microsoft badges, three layers of tools</h2>
+      <p>Architect expert first. Then the tools by the layer they live in.</p>
+    </div>
+    <div class="certs">
+      <a class="cert expert" href="https://learn.microsoft.com/en-us/credentials/certifications/power-platform-solution-architect-expert/" rel="noopener">
+        <img src="{{img:ms-expert.svg}}" alt="Microsoft Certified Expert badge">
+        <span><span class="code">PL-600</span><span class="name">Power Platform Solution Architect Expert</span><span class="lvl">Microsoft Certified Expert &middot; earned Aug 2025</span></span>
+        <span class="pill">architect</span>
+      </a>
+      <a class="cert" href="https://learn.microsoft.com/en-us/credentials/certifications/devops-engineer/" rel="noopener"><img src="{{img:ms-expert.svg}}" alt=""><span><span class="code">AZ-400</span><span class="name">DevOps Engineer Expert</span><span class="lvl">Expert</span></span></a>
+      <a class="cert" href="https://learn.microsoft.com/en-us/credentials/certifications/power-platform-developer-associate/" rel="noopener"><img src="{{img:ms-associate.svg}}" alt=""><span><span class="code">PL-400</span><span class="name">Power Platform Developer Associate</span><span class="lvl">Associate &middot; Jun 2025</span></span></a>
+      <a class="cert" href="https://learn.microsoft.com/en-us/credentials/certifications/d365-functional-consultant-customer-service/" rel="noopener"><img src="{{img:ms-associate.svg}}" alt=""><span><span class="code">MB-230</span><span class="name">Dynamics 365 Customer Service Functional Consultant</span><span class="lvl">Associate &middot; Sep 2024</span></span></a>
+      <a class="cert" href="https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/" rel="noopener"><img src="{{img:ms-fundamentals.svg}}" alt=""><span><span class="code">AZ-900</span><span class="name">Azure Fundamentals</span><span class="lvl">Fundamentals &middot; May 2026</span></span></a>
+      <a class="cert" href="https://learn.microsoft.com/en-us/credentials/certifications/d365-fundamentals-customer-engagement-apps/" rel="noopener"><img src="{{img:ms-fundamentals.svg}}" alt=""><span><span class="code">MB-910</span><span class="name">Dynamics 365 Fundamentals (CRM)</span><span class="lvl">Fundamentals &middot; Aug 2024</span></span></a>
+    </div>
+    <div class="skills">
+      <div>
+        <h3>{{svg:dotnet}}Backend and cloud</h3>
+        <ul><li class="chip">{{svg:csharp}}C#</li><li class="chip">{{svg:dotnet}}.NET 8</li><li class="chip">Minimal APIs</li><li class="chip">Clean Architecture</li><li class="chip">EF Core</li><li class="chip">SQL Server</li><li class="chip">REST</li><li class="chip">Webhooks</li><li class="chip">{{svg:microsoftazure}}Azure</li><li class="chip">{{svg:azuredevops}}Azure DevOps</li><li class="chip">xUnit</li></ul>
+      </div>
+      <div>
+        <h3>{{svg:microsoft}}Enterprise CRM</h3>
+        <ul><li class="chip">Dynamics 365 CE</li><li class="chip">Dataverse Web API</li><li class="chip">Dataverse SDK</li><li class="chip">{{svg:powerautomate}}Power Automate</li><li class="chip">Classic workflows</li><li class="chip">Model-driven apps</li><li class="chip">Power Platform CLI</li><li class="chip">XrmToolBox</li><li class="chip">FetchXML Builder</li><li class="chip">Ribbon Workbench</li><li class="chip">{{svg:uipath}}UiPath</li><li class="chip">SharePoint</li></ul>
+      </div>
+      <div>
+        <h3>{{svg:anthropic}}AI and workflow</h3>
+        <ul><li class="chip">{{svg:anthropic}}Claude Code</li><li class="chip">MCP servers</li><li class="chip">{{svg:githubcopilot}}GitHub Copilot</li><li class="chip">Agent skills</li><li class="chip">Synthetic test data</li><li class="chip">arc42 / C4</li><li class="chip">{{svg:postman}}Postman</li><li class="chip">{{svg:github}}Git / GitHub</li><li class="chip">{{svg:python}}Python</li><li class="chip">{{svg:jira}}Jira</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <h2><span class="n">experience</span>From tutoring Java to owning the release line</h2>
+      <p>Reverse order. Dates in the gutter, logos as they appear on the badge.</p>
+    </div>
+    <div class="xp">
+      <div class="when">Jan 2026 &rarr; now</div>
+      <div class="logo"><img src="{{img:paycorp-fav.png}}" alt="Paycorp"></div>
+      <div>
+        <h3>.NET Microsoft Dynamics 365 Developer</h3>
+        <p class="org">Paycorp Group &middot; Sandton, hybrid</p>
+        <ul>
+          <li>Built the Azure DevOps release pipeline (versioned manifest, pre-flight, service principal, two-person approval) that replaced hand deployments to QA and production.</li>
+          <li>Delivered 80+ documented changes in three months across sales, onboarding and change control.</li>
+          <li>Built the C# Dataverse SDK harness that proves Change of Ownership, Rebrand, Cash Conversion, Deal Change and Multi-Merchant end to end.</li>
+          <li>White-label email templates and notifications; production automation moved to service accounts; flow families aligned across environments.</li>
+          <li>Solution architecture packs and AI-assisted runbooks used by the team.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="xp">
+      <div class="when">Mar 2024 &rarr; Jan 2026</div>
+      <div class="logo"><img src="{{img:xiquel-fav270.png}}" alt="Xiquel Group"></div>
+      <div>
+        <h3>Software Engineer</h3>
+        <p class="org">Xiquel Group &middot; Microsoft partner, Centurion</p>
+        <ul>
+          <li>C# / .NET backend services and REST APIs for enterprise clients.</li>
+          <li>SQL Server query, index and stored-procedure optimisation for reporting and batch workloads.</li>
+          <li>Dynamics 365 integrations connecting CRM to clients' line-of-business systems, including white-label email implementations.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="xp">
+      <div class="when">May 2023 &rarr; Apr 2024</div>
+      <div class="logo"><img src="{{img:fav-ccbagroup.com.png}}" alt="Coca-Cola Beverages Africa"></div>
+      <div>
+        <h3>Graduate IT Trainee</h3>
+        <p class="org">Coca-Cola Beverages Africa</p>
+        <ul><li>Python, relational databases and data engineering on real operational data; IBM Data Engineering certificates completed alongside.</li></ul>
+      </div>
+    </div>
+    <div class="xp">
+      <div class="when">2018 &rarr; 2022</div>
+      <div class="logo"><img src="{{img:ru-logo.png}}" alt="Rhodes University"></div>
+      <div>
+        <h3>BSc Information Systems, Computer Science and Mathematical Statistics</h3>
+        <p class="org">Rhodes University, Makhanda &middot; tutor for Computer Science 2 and Mathematical Statistics</p>
+        <ul><li>Taught second-year Java, C, C++ and MIPS assembly practicals; marked and recorded for the cohort.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="github">
+    <div class="sec-head">
+      <h2><span class="n">on github</span>Practice in the open</h2>
+      <p>Client and production code lives in private repositories. These are where I practise in public.</p>
+    </div>
+    <div class="repos">
+      <a class="repo" href="https://github.com/RShivuri/NZWalks.API" rel="noopener"><b>{{svg:github}}NZWalks.API</b><span>ASP.NET Core Web API with EF Core, repositories, DTO mapping and JWT auth.</span><span class="lang">C#</span></a>
+      <a class="repo" href="https://github.com/RShivuri/ObjectsMastering" rel="noopener"><b>{{svg:github}}ObjectsMastering</b><span>C# object design practice: value objects, equality, immutability.</span><span class="lang">C#</span></a>
+      <a class="repo" href="https://github.com/RShivuri/PythonBasicPrep" rel="noopener"><b>{{svg:github}}PythonBasicPrep</b><span>Python problems for first-year students with self-checking tests.</span><span class="lang">Python</span></a>
+      <a class="repo" href="https://github.com/RShivuri/ETL-Pipeline-for-Multi-format-Data-Integration" rel="noopener"><b>{{svg:github}}ETL-Pipeline-for-Multi-format-Data-Integration</b><span>Python ETL across CSV, JSON and XML into one store.</span><span class="lang">Python</span></a>
+      <a class="repo" href="https://github.com/RShivuri/cpaas-assets" rel="noopener"><b>{{svg:github}}cpaas-assets</b><span>Public media served by the WhatsApp CPaaS backend.</span><span class="lang">assets</span></a>
+      <a class="repo" href="https://github.com/RShivuri/LeetCodeProblems" rel="noopener"><b>{{svg:github}}LeetCodeProblems</b><span>Java solutions, kept as a running log.</span><span class="lang">Java</span></a>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div>
+      <h2>Let's talk</h2>
+      <p class="muted" style="margin-top:.6rem;max-width:50ch">Senior Dynamics 365, Power Platform and .NET roles, solution architecture, and integration work in payments and fintech. Johannesburg, hybrid or remote.</p>
+      <small>Ronell Shivuri &middot; Johannesburg, South Africa &middot; 2026</small>
+    </div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/ronell-shivuri-6bb476168" rel="noopener">{{svg:linkedin}} LinkedIn</a>
+      <a href="https://github.com/RShivuri" rel="noopener">{{svg:github}} GitHub</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- hero pipeline ---------- */
+  var cv = document.getElementById("pipe"); if(!cv) return;
+  var ctx = cv.getContext("2d");
+  var W = 640, H = 460, dpr = Math.min(2, window.devicePixelRatio || 1);
+  function css(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  var glyph = {};
+  function img(src){ var i = new Image(); i.src = src; return i; }
+  glyph.d365 = img("{{glyph:microsoft:#ffffff}}");
+  glyph.wa   = img("{{glyph:whatsapp:#ffffff}}");
+  glyph.sql  = img("{{glyph:microsoftazure:#ffffff}}");
+  glyph.api  = img("{{glyph:dotnet:#ffffff}}");
+  glyph.ado  = img("{{glyph:azuredevops:#ffffff}}");
+
+  var nodes = {
+    d365:{x:70, y:90,  r:26, label:"Dynamics 365", sub:"Dataverse", g:"d365"},
+    wa:  {x:70, y:200, r:26, label:"WhatsApp",     sub:"Meta Cloud API", g:"wa"},
+    sql: {x:70, y:310, r:26, label:"PostOffice",   sub:"SQL Server", g:"sql"},
+    api: {x:300,y:200, r:36, label:".NET 8 API",   sub:"Clean Architecture", g:"api", hub:true},
+    dev: {x:300,y:380, r:20, label:"dev",  stage:true},
+    qa:  {x:450,y:380, r:20, label:"qa",   stage:true},
+    prod:{x:590,y:380, r:22, label:"prod", stage:true, g:"ado"}
+  };
+  var gates = [
+    {x:375, y:380, label:"pre-flight", t:0},
+    {x:520, y:380, label:"2 approvals", t:0}
+  ];
+  // edges as cubic beziers: from, to, control points
+  function edge(a,b,c1,c2){ return {a:nodes[a], b:nodes[b], c1:c1, c2:c2}; }
+  var edges = {
+    d365:edge("d365","api",{x:170,y:90},{x:220,y:200}),
+    wa:  edge("wa","api",  {x:170,y:200},{x:220,y:200}),
+    sql: edge("sql","api", {x:170,y:310},{x:220,y:200}),
+    dev: edge("api","dev", {x:300,y:260},{x:300,y:330}),
+    qa:  edge("dev","qa",  {x:350,y:380},{x:400,y:380}),
+    prod:edge("qa","prod", {x:500,y:380},{x:540,y:380})
+  };
+  function bez(e,t){
+    var u=1-t;
+    return {x:u*u*u*e.a.x+3*u*u*t*e.c1.x+3*u*t*t*e.c2.x+t*t*t*e.b.x,
+            y:u*u*u*e.a.y+3*u*u*t*e.c1.y+3*u*t*t*e.c2.y+t*t*t*e.b.y};
+  }
+  var routes = { d365:["d365","dev","qa","prod"], wa:["wa","dev","qa","prod"], sql:["sql","dev","qa","prod"] };
+  var packets = [];
+  var srcKeys = ["d365","wa","sql"];
+  function spawn(k, t){
+    packets.push({route:routes[k], seg:0, t:t||0, speed:0.0045+Math.random()*0.002, hold:0, ok:false, hue:k});
+  }
+  // staggered start so the first frame is already busy
+  spawn("d365",0.1); spawn("wa",0.55); spawn("sql",0.3);
+  packets[0].seg=2; packets[0].t=0.4; packets[1].seg=1; packets[1].t=0.7;
+  var spawnTimer=0, running=!reduce, lastT=0;
+
+  function drawNode(n){
+    var ax = ctx;
+    if(n.stage){
+      ax.beginPath(); ax.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ax.fillStyle = css("--surface-2"); ax.fill();
+      ax.lineWidth=1.5; ax.strokeStyle = n.label==="prod"? css("--green") : css("--line-2"); ax.stroke();
+      ax.fillStyle = css("--fg"); ax.font = "500 12px IBM Plex Mono, monospace"; ax.textAlign="center"; ax.textBaseline="middle";
+      ax.fillText(n.label, n.x, n.y);
+      return;
+    }
+    var grd = ax.createRadialGradient(n.x-6,n.y-8,2,n.x,n.y,n.r);
+    grd.addColorStop(0,"#2E4C9E"); grd.addColorStop(1,"#101B36");
+    ax.beginPath(); ax.arc(n.x,n.y,n.r,0,Math.PI*2); ax.fillStyle=grd; ax.fill();
+    ax.lineWidth=1.5; ax.strokeStyle = n.hub? css("--accent") : "rgba(255,255,255,.14)"; ax.stroke();
+    var g = glyph[n.g]; var s = n.hub? 30 : 22;
+    if(g && g.complete && g.naturalWidth) ax.drawImage(g, n.x-s/2, n.y-s/2, s, s);
+    ax.fillStyle = css("--fg"); ax.font="600 12px IBM Plex Sans, sans-serif"; ax.textAlign="center"; ax.textBaseline="top";
+    ax.fillText(n.label, n.x, n.y+n.r+6);
+    ax.fillStyle = css("--muted"); ax.font="11px IBM Plex Mono, monospace";
+    ax.fillText(n.sub, n.x, n.y+n.r+22);
+  }
+  function drawEdges(){
+    ctx.lineWidth=1.4; ctx.strokeStyle=css("--line-2");
+    for(var k in edges){ var e=edges[k]; ctx.beginPath(); ctx.moveTo(e.a.x,e.a.y); ctx.bezierCurveTo(e.c1.x,e.c1.y,e.c2.x,e.c2.y,e.b.x,e.b.y); ctx.stroke(); }
+  }
+  function drawGate(g){
+    var s=11, on = g.t>0;
+    ctx.save(); ctx.translate(g.x,g.y); ctx.rotate(Math.PI/4);
+    ctx.fillStyle = on? css("--amber") : css("--surface-2");
+    ctx.strokeStyle = css("--amber"); ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.rect(-s/2,-s/2,s,s); ctx.fill(); ctx.stroke(); ctx.restore();
+    if(on){ ctx.beginPath(); ctx.arc(g.x,g.y,14+8*(1-g.t),0,Math.PI*2); ctx.strokeStyle="rgba(255,181,71,"+(0.5*g.t)+")"; ctx.stroke(); }
+    ctx.fillStyle=css("--muted"); ctx.font="10px IBM Plex Mono, monospace"; ctx.textAlign="center"; ctx.textBaseline="top";
+    ctx.fillText(g.label, g.x, g.y+16);
+  }
+  var pulses=[];
+  function step(dt){
+    for(var i=packets.length-1;i>=0;i--){
+      var p=packets[i];
+      if(p.hold>0){ p.hold-=dt; continue; }
+      p.t += p.speed*dt*0.06;
+      if(p.t>=1){
+        p.t=0; p.seg++;
+        if(p.seg===2){ p.hold=500; gates[0].t=1; }      // pre-flight before qa
+        if(p.seg===3){ p.hold=650; gates[1].t=1; p.ok=true; } // approvals before prod
+        if(p.seg>=p.route.length){ pulses.push({x:nodes.prod.x,y:nodes.prod.y,t:0}); packets.splice(i,1); continue; }
+      }
+    }
+    for(var g=0;g<gates.length;g++){ if(gates[g].t>0) gates[g].t=Math.max(0,gates[g].t-dt/700); }
+    for(var q=pulses.length-1;q>=0;q--){ pulses[q].t+=dt/900; if(pulses[q].t>=1) pulses.splice(q,1); }
+    spawnTimer+=dt;
+    if(spawnTimer>1500 && packets.length<7){ spawnTimer=0; spawn(srcKeys[Math.floor(Math.random()*3)]); }
+  }
+  function drawPackets(){
+    for(var i=0;i<packets.length;i++){
+      var p=packets[i], e=edges[p.route[p.seg]]; if(!e) continue;
+      var pos=bez(e,p.t);
+      var col = p.ok? css("--green") : css("--accent");
+      // trail
+      for(var k=1;k<=4;k++){ var q=bez(e,Math.max(0,p.t-k*0.03)); ctx.beginPath(); ctx.arc(q.x,q.y,4-k*0.7,0,Math.PI*2); ctx.fillStyle=col; ctx.globalAlpha=0.25-k*0.05; ctx.fill(); }
+      ctx.globalAlpha=1;
+      ctx.beginPath(); ctx.arc(pos.x,pos.y,5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+      ctx.beginPath(); ctx.arc(pos.x,pos.y,9,0,Math.PI*2); ctx.strokeStyle=col; ctx.globalAlpha=.35; ctx.stroke(); ctx.globalAlpha=1;
+    }
+    for(var u=0;u<pulses.length;u++){ var s=pulses[u]; ctx.beginPath(); ctx.arc(s.x,s.y,22+40*s.t,0,Math.PI*2); ctx.strokeStyle=css("--green"); ctx.globalAlpha=(1-s.t)*.6; ctx.lineWidth=2; ctx.stroke(); ctx.globalAlpha=1; ctx.lineWidth=1.4; }
+  }
+  var scale=1;
+  function frame(){
+    ctx.setTransform(dpr*scale,0,0,dpr*scale,0,0);
+    ctx.clearRect(0,0,W,H);
+    // title
+    ctx.fillStyle=css("--muted"); ctx.font="11px IBM Plex Mono, monospace"; ctx.textAlign="right"; ctx.textBaseline="top";
+    ctx.fillText("sources → .NET 8 → release line", W-16, H-20);
+    drawEdges();
+    for(var k in nodes) drawNode(nodes[k]);
+    for(var g=0;g<gates.length;g++) drawGate(gates[g]);
+    drawPackets();
+  }
+  function loop(ts){
+    if(!running) return;
+    var dt = lastT? Math.min(50, ts-lastT) : 16; lastT=ts;
+    step(dt); frame(); requestAnimationFrame(loop);
+  }
+  function size(){
+    var w = cv.clientWidth || W; dpr = Math.min(2, window.devicePixelRatio||1);
+    cv.width = Math.round(w*dpr); cv.height = Math.round(w*(H/W)*dpr);
+    scale = w/W;
+  }
+  window.addEventListener("resize", function(){ size(); if(!running) frame(); });
+  size();
+  var btn=document.getElementById("pipeToggle");
+  if(btn){ btn.addEventListener("click", function(){ running=!running; btn.textContent= running? "pause":"play"; btn.setAttribute("aria-pressed", String(!running)); if(running){ lastT=0; requestAnimationFrame(loop); } }); if(reduce){ btn.textContent="play"; btn.setAttribute("aria-pressed","true"); } }
+  // redraw when glyphs land, then start
+  var pending=0; for(var gk in glyph){ pending++; glyph[gk].onload=function(){ if(--pending===0) frame(); }; }
+  frame();
+  if(running) requestAnimationFrame(loop);
+  if(window.matchMedia){ var mq=window.matchMedia("(prefers-color-scheme: dark)"); if(mq.addEventListener) mq.addEventListener("change", function(){ frame(); }); }
+
+  /* ---------- marquee: duplicate the track so it loops ---------- */
+  var track=document.getElementById("track");
+  if(track && !reduce){ track.innerHTML += track.innerHTML; }
+
+  /* ---------- counters ---------- */
+  var counters=document.querySelectorAll(".count");
+  if(!reduce && "IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return; io.unobserve(en.target);
+        var el=en.target, to=+el.getAttribute("data-to"), start=null;
+        function tick(ts){ if(!start) start=ts; var k=Math.min(1,(ts-start)/900); k=1-Math.pow(1-k,3); el.textContent=Math.round(to*k); if(k<1) requestAnimationFrame(tick); }
+        requestAnimationFrame(tick);
+      });
+    },{threshold:.6});
+    counters.forEach(function(c){ io.observe(c); });
+  }
+})();
+</script>
