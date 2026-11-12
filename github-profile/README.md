@@ -1,4 +1,4 @@
-<!-- Save this file as README.md in a new public repo named exactly RShivuri (github.com/RShivuri/RShivuri). GitHub renders it on your profile page. -->
+<img src="https://rshivuri.github.io/assets-raw/ronell.png" alt="Ronell Shivuri" width="96" align="right">
 
 # Ronell Shivuri
 
@@ -58,4 +58,4 @@ Production and client code is private. These are where I practise in the open.
 - Scripts dry-run by default and refuse to run twice on their own output.
 - Every written row is read back and kept as evidence.
 
-[LinkedIn](https://www.linkedin.com/in/ronell-shivuri-6bb476168) · Portfolio: coming soon
+[Portfolio](https://rshivuri.github.io) · [LinkedIn](https://www.linkedin.com/in/ronell-shivuri-6bb476168)
